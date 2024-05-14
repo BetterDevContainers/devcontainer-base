@@ -1,0 +1,13 @@
+{
+    "name": "project-dev",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "vscode",
+    "runServices": [
+        "vscode"
+    ],
+    "shutdownAction": "stopCompose",
+    "postCreateCommand": "~/.ssh.sh",
+    "workspaceFolder": "/workspace"
+}
