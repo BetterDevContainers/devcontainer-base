@@ -32,7 +32,7 @@ RUN apk add -q --update --progress --no-cache ca-certificates
 RUN apk add -q --update --progress --no-cache tzdata
 ENV TZ=
 
-# DO EVERYTHING FROM HERE AS USER
+# Do everything from here as the non-root user
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 
