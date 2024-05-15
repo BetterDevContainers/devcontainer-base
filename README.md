@@ -15,3 +15,6 @@ Git - <i>configured to share host config</i>
 ZSH - <i>with powerlevel10k and oh-my-zsh</i>
 
 
+## Getting Started
+
+Please refer to the [GETTING_STARTED.md](./GETTING_STARTED.md) in the repository for instructions on how to use this image.
