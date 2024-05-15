@@ -13,9 +13,9 @@ services:
       # from /mnt/ssh to ~/.ssh to fix permissions.
       - ~/.ssh:/mnt/ssh
       # Shell history persistence
-      - ~/.zsh_history:/root/.zsh_history
+      - ~/.zsh_history:/home/developer/.zsh_history
       # Git config
-      - ~/.gitconfig:/root/.gitconfig
+      - ~/.gitconfig:/home/developer/.initial_gitconfig
     environment:
       - TZ=
     entrypoint: ["zsh", "-c", "while sleep 1000; do :; done"]

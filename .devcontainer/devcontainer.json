@@ -9,6 +9,6 @@
     ],
     "remoteUser": "developer",
     "shutdownAction": "stopCompose",
-    "postCreateCommand": "~/.ssh.sh",
+    "postCreateCommand": "~/.start.sh",
     "workspaceFolder": "/workspace"
 }

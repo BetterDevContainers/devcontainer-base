@@ -36,17 +36,20 @@ ENV TZ=
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 
+# Copy the start scripts
+COPY --chown=${USERNAME}:${USERNAME} ./.start /home/${USERNAME}/.start/
+RUN chmod +x /home/${USERNAME}/.start/*.sh
+# Copy the start.sh script to the home directory
+COPY --chown=${USERNAME}:${USERNAME} .start.sh /home/${USERNAME}/
+RUN chmod +x /home/${USERNAME}/.start.sh
+
 # Setup Git and SSH
 RUN sudo apk add -q --update --progress --no-cache git mandoc git-doc openssh-client
-COPY --chown=${USERNAME}:${USERNAME} .ssh.sh /home/${USERNAME}/
-RUN chmod +x /home/${USERNAME}/.ssh.sh
-# Retro-compatibility symlink
-RUN ln -s /home/${USERNAME}/.ssh.sh /home/${USERNAME}/.windows.sh
+# One of the start scripts will sort the rest
 
-# # Setup Global Git Hooks
+# Setup Global Git Hooks
 COPY --chown=${USERNAME}:${USERNAME} .githooks /home/${USERNAME}/.githooks
-RUN sudo chmod +x /home/${USERNAME}/.githooks/*
-RUN git config --global core.hooksPath /home/${USERNAME}/.githooks
+# One of the start scripts will sort the rest
 
 # Setup shell
 ENTRYPOINT [ "/bin/zsh" ]
