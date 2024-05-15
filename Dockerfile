@@ -43,6 +43,10 @@ RUN chmod +x /home/${USERNAME}/.ssh.sh
 # Retro-compatibility symlink
 RUN ln -s /home/${USERNAME}/.ssh.sh /home/${USERNAME}/.windows.sh
 
+# # Setup Global Git Hooks
+COPY --chown=${USERNAME}:${USERNAME} .githooks /home/${USERNAME}/.githooks
+# RUN git config --global core.hooksPath /home/${USERNAME}/.githooks
+
 # Setup shell
 ENTRYPOINT [ "/bin/zsh" ]
 RUN sudo apk add -q --update --progress --no-cache zsh nano zsh-vcs
