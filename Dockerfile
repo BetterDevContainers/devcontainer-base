@@ -49,6 +49,7 @@ RUN sudo apk add -q --update --progress --no-cache git mandoc git-doc openssh-cl
 
 # Setup Global Git Hooks
 COPY --chown=${USERNAME}:${USERNAME} .githooks /home/${USERNAME}/.githooks
+RUN chmod +x /home/${USERNAME}/.githooks/*
 # One of the start scripts will sort the rest
 
 # Setup shell
