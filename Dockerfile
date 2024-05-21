@@ -25,6 +25,9 @@ RUN groupadd --gid ${USER_GID} ${USERNAME} && \
 RUN apk add -q --update --progress --no-cache sudo
 RUN echo "${USERNAME} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USERNAME}
 
+# Install common packages
+RUN apk add -q --update --progress --no-cache curl
+
 # CA certificates
 RUN apk add -q --update --progress --no-cache ca-certificates
 
